@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block head %}
+<h1>Welcome to the Random Password Generator</h1>
+<h2>Let's Get Started. Please Fill the below Details</h2>
+{% endblock %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('operation_result') }}" id="calculate">
+    <div class="form-group">
+    <label for="exampleInputEmail1">Enter the number of letters you want in your password</label>
+    <input type="letters" name="input1" class="form-control" id="exampleInputletters" aria-describedby="lettersHelp" placeholder="Number of Letters">
+    <small id="emailHelp" class="form-text text-muted">We will generate the most secured password</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Enter the number of special characters you want in your password</label>
+        <input type="sc" name="input2" class="form-control" id="exampleInputsc" aria-describedby="scHelp" placeholder="Number of special characters">
+        <small id="scHelp" class="form-text text-muted">Remember these are the temporary password</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Enter the number of number digits you want in your password</label>
+        <input type="num" name="input3" class="form-control" id="exampleInputnum" aria-describedby="numHelp" placeholder="Number of Num Digits">
+        <small id="numHelp" class="form-text text-muted">This should be used as one time password</small>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+{% if password_generation == True %}
+<br/>
+<h4>Hi User, Thanks for using Random Password Generator.</h4>
+<h4>This is used as One Time Password, And very difficult to cracked.</h4>
+<br/>
+<h4>Here is your password:</h4>
+<h3>{{ result }}</h3>
+
+<h2>Thank you, Please Visit Again :) !!!</h2>
+
+{% endif %}
+
+{% if password_generation == False %}
+<br/>
+<h4>Hi User, Thanks for using Random Password Generator.</h4>
+<h4>This is used as One Time Password, And very difficult to cracked.</h4>
+<br/>
+<h4>Here is your password:</h4>
+<h3>{{ result }}</h3>
+
+<h2>Thank you, Please Visit Again :) !!!</h2>
+
+{% endif %}
+
+{% endblock %}
+
